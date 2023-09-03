@@ -1,53 +1,96 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-int tipo_fruta,distancia,pago_total;
-Console.WriteLine("Elija el tipo de fruta colocando el numero correspondiente.");
-Console.WriteLine("Naranja (1)");
-Console.WriteLine("Fresa (2)");
-Console.WriteLine("Mango (3)");
-tipo_fruta = int.Parse(Console.ReadLine());
-Console.WriteLine("Ingrese la distancia. ");
-distancia = int.Parse(Console.ReadLine());
-if (tipo_fruta == 1)
+int num_dias,categoria_hotel,mont_tarifa,precio_diario,sub_total,pago_total,costo_desayuno_diario,costo_desayuno_total;
+Console.WriteLine("Ingrese la cantidad de dias de su estadia en el hotel");
+num_dias = int.Parse(Console.ReadLine());
+Console.WriteLine("Elija una categoria de hotel, colocando el numero correspondiente");
+Console.WriteLine("Tres estrellas (3)");
+Console.WriteLine("Cinco estrellas (5)");
+categoria_hotel = int.Parse(Console.ReadLine());
+if (num_dias >= 1 && num_dias <= 5)
 {
-	if (distancia < 30)
-	{
-		pago_total = 2; 
-		Console.WriteLine("El pago que debe realizar es: "+pago_total+" soles");
-	}
-	else
-	{
-        pago_total = 4;
-        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
-    }
-}
-else if (tipo_fruta == 2)
-{
-    if (distancia < 30)
+    if (categoria_hotel == 3)
     {
-        pago_total = 6;
-        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+        precio_diario = 100;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: "+pago_total+" soles");
+    }
+    else if (categoria_hotel == 5)
+    {
+        precio_diario = 300;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
     }
     else
     {
-        pago_total = 9;
-        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+        Console.WriteLine("Opción invalida");
     }
 }
-else if (tipo_fruta == 3)
+else if (num_dias >= 6 && num_dias <= 10)
 {
-    if (distancia < 30)
+    if (categoria_hotel == 3)
     {
-        pago_total = 3;
-        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+        precio_diario = 85;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+    }
+    else if (categoria_hotel == 5)
+    {
+        precio_diario = 270;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
     }
     else
     {
-        pago_total = 5;
-        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+        Console.WriteLine("Opción invalida");
     }
 }
-else
+else if (num_dias >= 11)
 {
-    Console.WriteLine("Opción invalida");
+    if (categoria_hotel == 3)
+    {
+        precio_diario = 70;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+    }
+    else if (categoria_hotel == 5)
+    {
+        precio_diario = 250;
+        sub_total = precio_diario * num_dias;
+        // Precio total del desayuno
+        costo_desayuno_diario = 7;
+        costo_desayuno_total = costo_desayuno_diario * num_dias;
+        // Precio final que debe pagar 
+        pago_total = costo_desayuno_total + sub_total;
+        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+    }
+    else
+    {
+        Console.WriteLine("Opción invalida");
+    }
 }
