@@ -1,19 +1,53 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-int num1, num2, num3;
-Console.WriteLine("Ingrese tres numeros enteros de distinto valor.");
-num1 = int.Parse(Console.ReadLine());
-num2 = int.Parse(Console.ReadLine());
-num3 = int.Parse(Console.ReadLine());
-if (num1 > num2 && num1 > num3)
+int tipo_fruta,distancia,pago_total;
+Console.WriteLine("Elija el tipo de fruta colocando el numero correspondiente.");
+Console.WriteLine("Naranja (1)");
+Console.WriteLine("Fresa (2)");
+Console.WriteLine("Mango (3)");
+tipo_fruta = int.Parse(Console.ReadLine());
+Console.WriteLine("Ingrese la distancia. ");
+distancia = int.Parse(Console.ReadLine());
+if (tipo_fruta == 1)
 {
-    Console.WriteLine("El numero mayor es: " + num1);
+	if (distancia < 30)
+	{
+		pago_total = 2; 
+		Console.WriteLine("El pago que debe realizar es: "+pago_total+" soles");
+	}
+	else
+	{
+        pago_total = 4;
+        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+    }
 }
-else if (num2 > num1 && num2 > num3)
+else if (tipo_fruta == 2)
 {
-    Console.WriteLine("El numero mayor es: " + num2);
+    if (distancia < 30)
+    {
+        pago_total = 6;
+        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+    }
+    else
+    {
+        pago_total = 9;
+        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+    }
 }
-else if (num3 > num1 && num3 > num2)
+else if (tipo_fruta == 3)
 {
-    Console.WriteLine("El numero mayor es: " + num3);
+    if (distancia < 30)
+    {
+        pago_total = 3;
+        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+    }
+    else
+    {
+        pago_total = 5;
+        Console.WriteLine("El pago que debe realizar es: " + pago_total + " soles");
+    }
+}
+else
+{
+    Console.WriteLine("Opción invalida");
 }
