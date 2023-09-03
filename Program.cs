@@ -1,93 +1,63 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-int num_dias,categoria_hotel,mont_tarifa,precio_diario,sub_total,pago_total,costo_desayuno_diario,costo_desayuno_total;
-Console.WriteLine("Ingrese la cantidad de dias de su estadia en el hotel");
-num_dias = int.Parse(Console.ReadLine());
-Console.WriteLine("Elija una categoria de hotel, colocando el numero correspondiente");
-Console.WriteLine("Tres estrellas (3)");
-Console.WriteLine("Cinco estrellas (5)");
-categoria_hotel = int.Parse(Console.ReadLine());
-if (num_dias >= 1 && num_dias <= 5)
+int edad,cant_adivinanzas,mont_inicial,mont_final;
+Console.WriteLine("Ingrese su edad ");
+edad = int.Parse(Console.ReadLine()); 
+Console.WriteLine("Ingrese la cantidad de adivinanzas que acertó");
+Console.WriteLine("Debe ser como minimo 1 y como maximo 5");
+cant_adivinanzas = int.Parse(Console.ReadLine());   
+if (edad >= 18)
 {
-    if (categoria_hotel == 3)
+    Console.WriteLine("Es mayor de edad");
+	if (cant_adivinanzas < 3)
+	{
+		mont_inicial = 30;
+		Console.WriteLine("Por haber acertado menos de 3 adivinanzas" +
+            " se ganó: "+mont_inicial+" soles");
+	}
+    else if (cant_adivinanzas >= 3 && cant_adivinanzas < 5)
     {
-        precio_diario = 100;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: "+pago_total+" soles");
+        mont_inicial = 50;
+        Console.WriteLine("Por haber acertado 3 o más adivinanzas" +
+         " se ganó: " + mont_inicial + " soles");
+
     }
-    else if (categoria_hotel == 5)
+    else if (cant_adivinanzas == 5)
     {
-        precio_diario = 300;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+        mont_inicial = 50;
+        mont_final = mont_inicial + 5 * edad + 2 * cant_adivinanzas;
+        Console.WriteLine("Felicidades, es el ganador del sorteo " +
+            "ya que acertó las 5 adivinanzas");
+        Console.WriteLine("Por ello se ha ganado la suma de "+mont_final+" soles");
     }
     else
     {
         Console.WriteLine("Opción invalida");
     }
 }
-else if (num_dias >= 6 && num_dias <= 10)
+if (edad < 18)
 {
-    if (categoria_hotel == 3)
+    Console.WriteLine("Es menor de edad");
+    if (cant_adivinanzas < 3)
     {
-        precio_diario = 85;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+        mont_inicial = 50;
+        Console.WriteLine("Por haber acertado menos de 3 adivinanzas" +
+            " se ganó: " + mont_inicial + " soles");
     }
-    else if (categoria_hotel == 5)
+    else if (cant_adivinanzas >= 3 && cant_adivinanzas < 5)
     {
-        precio_diario = 270;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+        mont_inicial = 80;
+        Console.WriteLine("Por haber acertado 3 o más adivinanzas" +
+            " se ganó: " + mont_inicial + " soles");
+
     }
-    else
+    else if (cant_adivinanzas == 5)
     {
-        Console.WriteLine("Opción invalida");
-    }
-}
-else if (num_dias >= 11)
-{
-    if (categoria_hotel == 3)
-    {
-        precio_diario = 70;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
-    }
-    else if (categoria_hotel == 5)
-    {
-        precio_diario = 250;
-        sub_total = precio_diario * num_dias;
-        // Precio total del desayuno
-        costo_desayuno_diario = 7;
-        costo_desayuno_total = costo_desayuno_diario * num_dias;
-        // Precio final que debe pagar 
-        pago_total = costo_desayuno_total + sub_total;
-        Console.WriteLine("El pago que debe realizar es: " +pago_total+" soles");
+        mont_inicial = 80;
+        mont_final = mont_inicial + 5 * edad + 2 * cant_adivinanzas;
+        Console.WriteLine("Felicidades, es el ganador del sorteo " +
+            "ya que acertó las 5 adivinanzas");
+        Console.WriteLine("Por ello se ha ganado la suma de " + mont_final + " soles");
     }
     else
     {
