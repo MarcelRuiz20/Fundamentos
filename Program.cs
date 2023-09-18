@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-int num_1,num_2,resultado;
-Console.Write("Ingrese el primer número: ");
-num_1 = int.Parse(Console.ReadLine());
-Console.Write("Ingrese el segundo número: ");
-num_2 = int.Parse(Console.ReadLine());
-resultado = 0;
-for (int i = 0; i < num_2; i++)
+int Base,exponente,resultado;
+Console.Write("Ingrese la base: ");
+Base = int.Parse(Console.ReadLine());
+Console.Write("Ingrese el exponente: ");
+exponente = int.Parse(Console.ReadLine());
+resultado = 1;
+for (int i = 0; i < exponente; i++)
 {
-    resultado = resultado + num_1;
+    resultado = resultado * Base;
 }
-Console.WriteLine("El producto es: "+resultado);
+Console.WriteLine("La potencia es: " + resultado);
