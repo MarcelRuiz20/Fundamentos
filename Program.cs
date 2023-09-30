@@ -1,55 +1,58 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-double limite,factorial,opción;
-Console.Write("Ingrese el número límite: ");
-limite = double.Parse(Console.ReadLine());
-Console.WriteLine("============================");
-Console.WriteLine("Escoja una opción: ");
-Console.WriteLine("(1) Números pares ");
-Console.WriteLine("(2) Números impares ");
-Console.WriteLine("(3) Factorial ");
-opción = double.Parse(Console.ReadLine());
-switch (opción)
+int num_maximo, cont_actual = 0, opcion, num_personas;
+
+Console.Write("Ingrese un número máximo de personas: ");
+num_maximo = int.Parse(Console.ReadLine());
+
+Console.WriteLine("========================================");
+Console.WriteLine($"El número máximo establecido es de {num_maximo} personas,");
+Console.WriteLine("presione una tecla para comenzar a contar.");
+Console.ReadKey();
+
+while (true)
 {
-	case 1:
-		Console.Write("Los números pares son: ");
-		for (int i = 1; i <= limite; i++)
-		{
-			if (i % 2 == 0)
-			{
-				Console.Write(i + ", ");
-			}
-		}
-		break;
+    Console.WriteLine("========================================");
+    Console.WriteLine($"Personas actualmente en la tienda: {cont_actual}");
+    Console.WriteLine("1. Registrar entrada de personas.");
+    Console.WriteLine("2. Registrar salida de personas.");
+    Console.WriteLine("3. Salir.");
+    Console.Write("Seleccione una opción: ");
+    opcion = Convert.ToInt32(Console.ReadLine());
 
-	case 2:
-        Console.Write("Los números impares son: ");
-        for (int i = 1; i <= limite; i++)
-        {
-            if (i % 2 != 0)
+    switch (opcion)
+    {
+        case 1:
+            Console.Write("Ingrese número de personas que entran: ");
+            num_personas = Convert.ToInt32(Console.ReadLine());
+            if (cont_actual + num_personas <= num_maximo)
             {
-                Console.Write(i + ", ");
+                cont_actual += num_personas;
             }
-        }
-        break;
-
-	case 3:
-		if (limite == 0)
-		{
-			Console.WriteLine("El factorial de {0} es: 1" ,limite);
-		}
-		else
-		{
-			factorial = 1;
-			for (int i = 1; i <= limite; i++)
-			{
-                factorial = factorial * i;
+            else
+            {
+                Console.WriteLine("Superará el límite. No se puede ingresar esa cantidad de personas.");
             }
-			Console.WriteLine("El factorial de {0} es: {1}" ,limite,factorial);
-		}
-		break;
+            break;
 
-	default:
-		Console.WriteLine("Opción inválida");
-		break;
+        case 2:
+            Console.Write("Ingrese número de personas que salen: ");
+            num_personas = Convert.ToInt32(Console.ReadLine());
+            if (cont_actual - num_personas >= 0)
+            {
+                cont_actual -= num_personas;
+            }
+            else
+            {
+                Console.WriteLine("No puede salir más gente de la que está dentro.");
+            }
+            break;
+
+        case 3:
+            Console.WriteLine("Finalizando programa.");
+            return;
+
+        default:
+            Console.WriteLine("Opción no válida.");
+            break;
+    }
 }
