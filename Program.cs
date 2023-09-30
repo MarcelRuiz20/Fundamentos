@@ -1,35 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-int num_maximo, cont_actual = 0;
-int vecesLleno = 0, vecesVacio = 0;
-
-Console.Write("Ingrese un número máximo de personas: ");
-num_maximo = Convert.ToInt32(Console.ReadLine());
-Console.Clear();
+int maximo_personas = 50, contador_actual = 3;
 
 while (true)
 {
-    double porcentajeAforo = ((double)cont_actual / num_maximo) * 100;
+    Console.Clear();
 
-    Console.WriteLine($"| Asistentes actuales | {cont_actual}\n| Aforo               | {porcentajeAforo}%\n| Máximo              | {num_maximo} personas\n====================================\nPresione\n[ i ] si ingresa una persona\n[ s ] si sale una persona\n[ x ] para terminar");
+    double porcentajeAforo = ((double)contador_actual / maximo_personas) * 100;
+
+    Console.WriteLine($"=================================\n| Asistentes actuales | {contador_actual}\n| Aforo               | {porcentajeAforo:0.00}%\n| Máximo              | {maximo_personas} personas\n====================================\nPresione\n[ i ] si ingresa una persona\n[ s ] si sale una persona\n[ x ] para terminar");
     char opcion = Console.ReadKey().KeyChar;
 
-    if (opcion == 'i' && cont_actual < num_maximo)
+    if (opcion == 'i' && contador_actual < maximo_personas)
     {
-        cont_actual++;
-        if (cont_actual == num_maximo) vecesLleno++;
+        contador_actual++;
     }
-    else if (opcion == 's' && cont_actual > 0)
+    else if (opcion == 's' && contador_actual > 0)
     {
-        cont_actual--;
-        if (cont_actual == 0) vecesVacio++;
+        contador_actual--;
     }
     else if (opcion == 'x')
     {
-        Console.Clear();
-        Console.WriteLine($"=================================\nEl programa ha terminado\n====================================\nEstadísticas:\n----------------------------------\n{vecesLleno} veces se llenó el local\nEstuvo vacío {vecesVacio} veces");
         return;
     }
-
-    Console.Clear();
 }
