@@ -1,83 +1,301 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-int maximo_personas, contador_actual = 0, opcion, personas;
-
-int total_Ingresos = 0, total_Salidas = 0, veces_Lleno = 0, veces_Vacio = 0;
-
-Console.Write("Ingrese un número máximo de personas: ");
-maximo_personas = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("========================================");
-Console.WriteLine($"El número máximo establecido es de {maximo_personas} personas,");
-Console.WriteLine("presione una tecla para comenzar a contar.");
-Console.ReadKey();
-
-while (true)
+int primera_eleccion;int segunda_eleccion = 0;int tercera_eleccion; int opción_segunda_eleccion = 0; int cantidad;
+double suma_cant_venta_1 = 0, suma_cant_venta_2 = 0, suma_cant_venta_3 = 0, suma_cant_venta_4 = 0;
+double suma_cant_devolución_1 = 0, suma_cant_devolución_2 = 0, suma_cant_devolución_3 = 0, suma_cant_devolución_4 = 0;
+double total_1, total_2, total_3, total_4; double total_rubro_1, total_rubro_2, total_rubro_3, total_rubro_4;
+double suma_producto_venta_1 = 0, suma_producto_venta_2 = 0, suma_producto_venta_3 = 0, suma_producto_venta_4 = 0;
+double suma_producto_devolución_1 = 0, suma_producto_devolución_2 = 0, suma_producto_devolución_3 = 0, suma_producto_devolución_4 = 0;
+double precio , producto_venta ,producto_devolución = 0, total_general;
+do
 {
-    Console.Clear(); // Limpiamos la pantalla para una mejor visualización
-
-    Console.WriteLine("========================================");
-    Console.WriteLine($"Personas actualmente en la tienda: {contador_actual}");
-    Console.WriteLine("1. Registrar entrada de personas.");
-    Console.WriteLine("2. Registrar salida de personas.");
-    Console.WriteLine("3. Salir.");
-    Console.Write("Seleccione una opción: ");
-    opcion = Convert.ToInt32(Console.ReadLine());
-
-    switch (opcion)
+    Console.WriteLine("==========================");
+    Console.WriteLine("Tienda de don Lucas ");
+    Console.WriteLine("==========================");
+    Console.WriteLine("1: Registrar venta ");
+    Console.WriteLine("2: Registrar devolucion ");
+    Console.WriteLine("3: Cerrar caja ");
+    Console.WriteLine("==========================");
+    Console.Write("Ingrese una opcion: ");
+    primera_eleccion = int.Parse(Console.ReadLine());
+    Console.Clear();
+    switch (primera_eleccion)
     {
         case 1:
-            Console.Write("Ingrese número de personas que entran: ");
-            personas = Convert.ToInt32(Console.ReadLine());
-            if (contador_actual + personas <= maximo_personas)
-            {
-                contador_actual += personas;
-                total_Ingresos += personas;
-                if (contador_actual == maximo_personas)
-                {
-                    veces_Lleno++;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Superará el límite. No se puede ingresar esa cantidad de personas.");
-            }
-            break;
-
-        case 2:
-            Console.Write("Ingrese número de personas que salen: ");
-            personas = Convert.ToInt32(Console.ReadLine());
-            if (contador_actual - personas >= 0)
-            {
-                contador_actual -= personas;
-                total_Salidas += personas;
-                if (contador_actual == 0)
-                {
-                    veces_Vacio++;
-                }
-            }
-            else
-            {
-                Console.WriteLine("No puede salir más gente de la que está dentro.");
-            }
-            break;
-
-        case 3:
+            Console.WriteLine("==========================");
+            Console.WriteLine("Registrar venta de:");
+            Console.WriteLine("==========================");
+            Console.WriteLine("1: Limpieza ");
+            Console.WriteLine("2: Abarrotes ");
+            Console.WriteLine("3: Golosinas ");
+            Console.WriteLine("4: Electronicos ");
+            Console.WriteLine("5: <- Regresar ");
+            Console.WriteLine("==========================");
+            Console.Write("Ingrese una opcion: ");
+            segunda_eleccion = int.Parse(Console.ReadLine());
             Console.Clear();
 
-            Console.WriteLine("=================================");
-            Console.WriteLine("El programa ha terminado");
-            Console.WriteLine("====================================");
-            Console.WriteLine("Estadísticas:");
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine($"{total_Ingresos} personas ingresaron");
-            Console.WriteLine($"{total_Salidas} personas salieron");
-            Console.WriteLine($"{veces_Lleno} veces se llenó el local");
-            Console.WriteLine($"Estuvo vacío {veces_Vacio} veces");
-            return;
+            switch (segunda_eleccion)
+            {
+                case 1:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar venta de Limpieza");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han ingresado " + cantidad + " unidades");
+                        producto_venta = cantidad * precio;
+                        Console.WriteLine("Se han ingresado S/ " + producto_venta + " en caja");
+                        suma_cant_venta_1 += cantidad;
+                        suma_producto_venta_1 += producto_venta;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Registrar más productos de limpieza");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
 
-        default:
-            Console.WriteLine("Opción no válida.");
+                    break;
+                case 2:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar venta de Abarrotes");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han ingresado " + cantidad + " unidades");
+                        producto_venta = cantidad * precio;
+                        Console.WriteLine("Se han ingresado S/ " + producto_venta + " en caja");
+                        suma_cant_venta_2 += cantidad;
+                        suma_producto_venta_2 += producto_venta;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Registrar más productos de Abarrotes");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear() ;   
+                    break;
+                case 3:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar venta de Golosinas");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han ingresado " + cantidad + " unidades");
+                        producto_venta = cantidad * precio;
+                        Console.WriteLine("Se han ingresado S/ " + producto_venta + " en caja");
+                        suma_cant_venta_3 += cantidad;
+                        suma_producto_venta_3 += producto_venta;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Registrar más productos de Golosinas");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+                case 4:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar venta de Electronicos");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han ingresado " + cantidad + " unidades");
+                        producto_venta = cantidad * precio;
+                        Console.WriteLine("Se han ingresado S/ " + producto_venta + " en caja");
+                        suma_cant_venta_4 += cantidad;
+                        suma_producto_venta_4 += producto_venta;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Registrar más productos de Electronicos");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+            }
+            break;
+        case 2:
+            Console.WriteLine("==========================");
+            Console.WriteLine("Registrar devolucion de:");
+            Console.WriteLine("==========================");
+            Console.WriteLine("1: Limpieza ");
+            Console.WriteLine("2: Abarrotes ");
+            Console.WriteLine("3: Golosinas ");
+            Console.WriteLine("4: Electronicos ");
+            Console.WriteLine("5: <- Regresar ");
+            Console.WriteLine("==========================");
+            Console.Write("Ingrese una opcion: ");
+            segunda_eleccion = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (segunda_eleccion)
+            {
+                case 1:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar devolucion de Limpieza");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han regresado " + cantidad + " unidades");
+                        producto_devolución = cantidad * precio;
+                        Console.WriteLine("Se han devuelto S/ " + producto_devolución + " de caja");
+                        suma_cant_devolución_1 += cantidad;
+                        suma_producto_devolución_1 += producto_devolución;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Devolver más productos de limpieza");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+                case 2:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar devolucion de Abarrotes");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han regresado " + cantidad + " unidades");
+                        producto_devolución = cantidad * precio;
+                        Console.WriteLine("Se han devuelto S/ " + producto_devolución + " de caja");
+                        suma_cant_devolución_2 += cantidad;
+                        suma_producto_devolución_2 += producto_devolución;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Devolver más productos de Abarrotes");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+                case 3:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar devolucion de Golosinas");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han regresado " + cantidad + " unidades");
+                        producto_devolución = cantidad * precio;
+                        Console.WriteLine("Se han devuelto S/ " + producto_devolución + " de caja");
+                        suma_cant_devolución_3 += cantidad;
+                        suma_producto_devolución_3 += producto_devolución;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Devolver más productos de Golosinas");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+                case 4:
+                    do
+                    {
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Registrar devolucion de Electronicos");
+                        Console.WriteLine("================================");
+                        Console.Write("Ingrese cantidad de unidades: ");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Console.Write("Ingrese el precio: S/ ");
+                        precio = double.Parse(Console.ReadLine());
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Se han regresado " + cantidad + " unidades");
+                        producto_devolución = cantidad * precio;
+                        Console.WriteLine("Se han devuelto S/ " + producto_devolución + " de caja");
+                        suma_cant_devolución_4 += cantidad;
+                        suma_producto_devolución_4 += producto_devolución;
+                        Console.WriteLine("================================");
+                        Console.WriteLine("1: Devolver más productos de Electronicos");
+                        Console.WriteLine("2: <- Regresar");
+                        Console.WriteLine("================================");
+                        Console.WriteLine("Ingrese una opción:");
+                        opción_segunda_eleccion = int.Parse(Console.ReadLine());
+                    } while (opción_segunda_eleccion == 1);
+                    Console.Clear();
+                    break;
+            }
+            break;
+        case 3:
+            total_1 = suma_cant_venta_1 - suma_cant_devolución_1;
+            total_2 = suma_cant_venta_2 - suma_cant_devolución_2;
+            total_3 = suma_cant_venta_3 - suma_cant_devolución_3;
+            total_4 = suma_cant_venta_4 - suma_cant_devolución_4;
+
+            total_rubro_1 = suma_producto_venta_1 - suma_producto_devolución_1;
+            total_rubro_2 = suma_producto_venta_2 - suma_producto_devolución_2;
+            total_rubro_3 = suma_producto_venta_3 - suma_producto_devolución_3;
+            total_rubro_4 = suma_producto_venta_4 - suma_producto_devolución_4;
+
+            Console.WriteLine("===============================");
+            Console.WriteLine("Cerrando caja");
+            Console.WriteLine("===============================");
+            Console.WriteLine("Totales");
+            Console.WriteLine("===============================");
+            Console.WriteLine("           |    " + suma_cant_venta_1 + " vendidos");
+            Console.WriteLine("Limpieza   |    " + suma_cant_devolución_1 + " devueltos");
+            Console.WriteLine("           |    " + total_1 + " en total"                 );
+            Console.WriteLine("           |    S/ " + total_rubro_1 + " en caja");
+            Console.WriteLine("===============================");
+            Console.WriteLine("           |    " + suma_cant_venta_2 + " vendidos");
+            Console.WriteLine("Abarrotes  |    " + suma_cant_devolución_2 + " devueltos");
+            Console.WriteLine("           |    " + total_2 + " en total");
+            Console.WriteLine("           |    S/ " + total_rubro_2 + " en caja");
+            Console.WriteLine("===============================");
+            Console.WriteLine("           |    " + suma_cant_venta_3 + " vendidos");
+            Console.WriteLine("Golosinas  |    " + suma_cant_devolución_3 + " devueltos");
+            Console.WriteLine("           |    " + total_3 + " en total");
+            Console.WriteLine("           |    S/ " + total_rubro_3 + " en caja");
+            Console.WriteLine("===============================");
+            Console.WriteLine("           |    " + suma_cant_venta_4 + " vendidos");
+            Console.WriteLine("Eletro     |    " + suma_cant_devolución_4 + " devueltos");
+            Console.WriteLine("           |    " + total_4 + " en total");
+            Console.WriteLine("           |    S/ " + total_rubro_4 + " en caja");
+            Console.WriteLine("===============================");
+            
+            total_general = total_rubro_1 + total_rubro_2 + total_rubro_3 + total_rubro_4;
+            Console.WriteLine("Queda en caja " + total_general);
+            Console.ReadKey();
             break;
     }
-}
+} while (segunda_eleccion == 5 || opción_segunda_eleccion == 2);
